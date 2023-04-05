@@ -1,0 +1,102 @@
+.header{
+    width:90%;
+    height: 100px;
+    background-color: rgb(201, 201, 201);
+    border-radius: 999px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    
+
+}
+
+img{
+    height: 30px;
+}
+
+.navLeft{
+    width: 50%;
+    height: 100px;
+    display: flex;
+}
+
+.logo{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 30px;
+}
+
+
+.logo img{
+    height: 50px;
+}
+
+
+.dashboard{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 80px;
+    
+}
+
+
+
+
+.navRight{
+    width: 50%;
+    height: 100px;
+    display: flex;
+}
+
+.empManagement{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 80px;
+
+}
+
+.adminProfile{
+    width: 45%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.adminProfile p 
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.empManagement p 
+{
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.dashboard p 
+{
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.active{
+    background-color: rgb(87, 87, 239);
+    display: flex;
+    width: 220px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: white;
+    
+}
+
