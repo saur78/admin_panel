@@ -6,7 +6,6 @@ Chart.register(CategoryScale);
 function ActiveUsersChart() {
 return (
 	<div>
-    <h2>Daily Active Users</h2>
 	<div style={{ maxWidth: "100%" }}>
 		<Bar
 		data={{

@@ -1,18 +1,19 @@
+@media only screen and (min-width:768px){
 .header{
-    width:90%;
+    width:96%;
     height: 100px;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(245,245,245);
     border-radius: 999px;
     margin: auto;
     display: flex;
     position: relative;
-    margin-bottom: 30px;
     margin-top: 15px;
-    
-
+    font-family:sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-img{
+.header img{
     height: 30px;
 }
 
@@ -45,9 +46,6 @@ img{
     
 }
 
-
-
-
 .navRight{
     width: 50%;
     height: 100px;
@@ -73,7 +71,7 @@ img{
 .adminProfile p 
 {
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 30px;
     cursor: pointer;
 }
 
@@ -90,13 +88,127 @@ img{
 }
 
 .active{
-    background-color: rgb(87, 87, 239);
+    background-color: rgb(103,93,239);
     display: flex;
     width: 220px;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    color: white;
-    
+    color: white;    
 }
 
+}
+
+
+
+
+@media only screen and (max-width:767px){
+    .header{
+        width:100%;
+        background-color: rgb(245,245,245);
+        border-radius: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        font-family:sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        align-items: center;
+    }
+    
+    .dashboard img{
+        height: 30px;
+    }
+    .empManagement img{
+        height: 30px;
+    }
+
+    .navLeft{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+    }
+    
+    
+    .logo img{
+        height: 50px;
+    }
+    
+    
+    .dashboard {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }    
+    
+    
+    .navRight {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+    
+    .empManagement {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .adminProfile{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .adminProfile img{
+        height: 30px;
+    }
+    
+    .adminProfile p 
+    {
+        margin-left: 15px;
+        cursor: pointer;
+    }
+    
+    .empManagement p 
+    {
+        margin-left: 15px;
+        cursor: pointer;
+    }
+    
+    .dashboard p 
+    {
+        margin-left: 15px;
+        cursor: pointer;
+    }
+    
+    .active{
+        background-color: rgb(103,93,239);
+        display: flex;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 999px;    
+    }
+
+
+}
