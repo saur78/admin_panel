@@ -1,0 +1,62 @@
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    height: 400px;
+    width: 400px;
+    border: 15px;
+    border-radius: 20px !important;
+}
+
+
+.css-140puxv-MuiTypography-root-MuiDialogTitle-root{
+    margin-top: 0 !important;
+    padding: 5px !important;
+    margin-left: 20px !important;
+}
+
+.css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogActions-root {
+    padding: 25px;
+}
+
+
+
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    height: 40px !important;
+    width: 200px !important;
+    border-radius: 10px;
+    border: 1px solid #675def !important;
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+    border-radius: 10px !important;
+}
+
+
+.css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogActions-root{
+    height: 50px;
+}
+
+
+.sendMessageInput{
+    height: 150px;
+    width: 90%;
+    margin-left: 10px;
+    background-color: #f6f6f6;
+    border: none;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+
+.smButton  {
+    height: 35px !important;
+    width: 150px !important;
+    color: blue !important;
+    background-color: white !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+    border:1px solid blue !important ;
+    margin: auto;
+}
+.sendButton{
+    background-color: blue !important;
+    color: white !important;
+}

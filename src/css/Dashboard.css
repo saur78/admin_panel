@@ -1,0 +1,218 @@
+@media only screen and (min-width:768px){
+.dashboardHeader{
+    width: 100%;
+    display: flex;
+
+}
+
+.headerLeft{
+    width: 66%;
+    text-align: left;
+}
+
+.headerLeft h1{
+    padding-left: 30px;
+}
+
+.headerRight{
+    width: 35%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.messageAdmin{
+    height: 40px;
+    width: 200px;
+    color: #675def;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+
+}
+
+.chatAdmin{
+    height: 40px;
+    width: 200px;
+    color: white;
+    background-color: #675def;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 10px;
+    border:none;
+}
+
+
+.dashboardDetails{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dashboardCard{
+        width: 20%;
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 4px 2px rgb(230,230,230);
+        background-color: white;
+    
+}
+
+.dashboardCard h3{
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 14px !important;
+}
+
+
+
+.dashboardCard span{
+    color: #838282;
+    font-weight: 600;
+}
+
+.dashboardCard p{
+    font-size: 16px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.dashboardGrowth{
+    width: 100%;
+    display: flex;
+}
+
+.growthDetails{
+    width: 50%;
+}
+
+.growthDetails h1{
+    padding-top: 40px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 24px !important;
+}
+
+.growthGraph{
+    width: 40%;
+    margin-left: 15px;
+}
+
+.growthGraph img{
+    width: 95%;
+    height: 90px;
+    margin-top: 35px;
+    margin-right: 25px;
+}
+
+}
+
+
+
+@media only screen and (max-width:767px){
+
+    .dashboardHeader{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .headerLeft{
+        width: 100%;
+        text-align: center;
+    }
+    
+    .headerRight{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .messageAdmin{
+        height: 50px;
+        width: 150px;
+        color: blue;
+        border-radius: 10px;
+        border: 1px solid blue;
+        cursor: pointer;
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    
+    .chatAdmin{
+        height: 50px;
+        width: 150px;
+        color: white;
+        background-color: rgb(87, 87, 239);
+        text-align: center;
+        margin-left: 10px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    
+    
+    .dashboardDetails{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .dashboardCard{
+        width: 85%;
+        height: 250px;
+        border-radius: 10px;
+        box-shadow: 2px 2px #cacaca;
+        background-color:white;
+        margin-top: 10px;
+    }
+    
+    .dashboardCard h3{
+        height: 60px;
+        margin: 0;
+        padding-top: 20px;
+        text-align: center;
+
+    }
+    
+    
+    
+    .dashboardCard span{
+        color: #838282;
+        font-weight: 600;
+    }
+    
+    .dashboardGrowth{
+        width: 100%;
+        display: flex;
+    }
+    
+    .growthDetails{
+        width: 50%;
+    }
+    
+    .growthDetails h2{
+        padding-top: 30px;
+    }
+    
+    .growthGraph{
+        width: 50%;
+    }
+    
+    .growthGraph img{
+        width: 100%;
+        height: 165px;
+    }
+
+}

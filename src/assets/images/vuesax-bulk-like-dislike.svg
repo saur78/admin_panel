@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="vuesax_bulk_like-dislike" data-name="vuesax/bulk/like-dislike" transform="translate(-364 -252)">
+    <g id="like-dislike" transform="translate(364 252)">
+      <path id="Vector" d="M0,0H36V36H0Z" fill="none" opacity="0"/>
+      <g id="Group" transform="translate(3 16.434)">
+        <path id="Vector-2" data-name="Vector" d="M12.36,6.621a1.878,1.878,0,0,0-1.59-.75H7.275A.726.726,0,0,1,6.69,5.6a.842.842,0,0,1-.18-.66l.435-2.79A1.869,1.869,0,0,0,5.745.1,1.852,1.852,0,0,0,3.69.756L.1,6.081l-.1.18v7.53l.135.135,2.7,2.085a2.806,2.806,0,0,0,1.74.555H7.89a2.735,2.735,0,0,0,2.55-1.905l2.1-6.375A1.792,1.792,0,0,0,12.36,6.621Z" transform="translate(4.365)" fill="#9f9f0c" opacity="0.4"/>
+        <path id="Vector-3" data-name="Vector" d="M2.73,0H1.86C.54,0,0,.51,0,1.77v8.565c0,1.26.54,1.77,1.86,1.77h.87c1.32,0,1.86-.51,1.86-1.77V1.77C4.59.51,4.05,0,2.73,0Z" transform="translate(0 3.516)" fill="#9f9f0c"/>
+      </g>
+      <g id="Group-2" data-name="Group" transform="translate(16.498 2.955)">
+        <path id="Vector-4" data-name="Vector" d="M.3,9.945a1.878,1.878,0,0,0,1.59.75H5.387a.726.726,0,0,1,.585.27.842.842,0,0,1,.18.66l-.435,2.79a1.869,1.869,0,0,0,1.2,2.055,1.852,1.852,0,0,0,2.055-.66l3.585-5.325.1-.18V2.775l-.135-.135L9.828.555A2.806,2.806,0,0,0,8.087,0H4.773a2.735,2.735,0,0,0-2.55,1.905L.123,8.28A1.8,1.8,0,0,0,.3,9.945Z" fill="#9f9f0c" opacity="0.4"/>
+        <path id="Vector-5" data-name="Vector" d="M1.86,12.105h.87c1.32,0,1.86-.51,1.86-1.77V1.77C4.59.51,4.05,0,2.73,0H1.86C.54,0,0,.51,0,1.77v8.565C0,11.6.54,12.105,1.86,12.105Z" transform="translate(12.437 0.945)" fill="#9f9f0c"/>
+      </g>
+    </g>
+  </g>
+</svg>

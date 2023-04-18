@@ -1,0 +1,201 @@
+.empMngmt{
+    width: 96%;
+    height: 80px;
+    margin: auto;
+}
+
+.empMngmtHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.empMngmtHeader h2{
+    display: inline-block !important;
+    width: 45%;
+    height: 40px;
+    text-align: left;
+       
+}
+
+.empSearch{
+    width: 29%;
+}
+.empSearch input{
+    background-color: #f7f7f7;
+    padding: 5px;
+    width: 90%;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background: left no-repeat url('../assets/images/Icon\ ionic-ios-search.svg') #f7f7f7;
+    background-position: 10px;
+}
+input::placeholder{
+    text-indent: 15px;
+}
+
+.empFilter{
+    width: 8%;
+}
+
+.empFilter p{
+    width: 90%;
+    box-sizing: border-box;
+    height: 40px;
+    padding-top: 8px;
+    background: #f7f7f7 left no-repeat url('../assets/images/Icon\ feather-filter.svg');
+    background-position: 14px;
+    color: #818181;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.empSort{
+    width: 8%;
+}
+
+.empSort p{
+    width: 90%;
+    box-sizing: border-box;
+    height: 40px;
+    padding-top: 8px;
+    background: #f7f7f7 left no-repeat url('../assets/images/Icon\ material-sort.svg');
+    background-position: 14px;
+    color: #818181;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.empAddEmp{
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #205cf4;
+    color: white;
+    border: none;
+}
+
+
+.empData{
+    width: 100%;
+}
+
+.empData h3{
+    text-align: left;
+}
+
+
+
+.table{
+    width: 100%;
+
+}
+
+.tableFooter{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+
+.footerButton{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.footerPageInfo{
+    width: 40%;
+}
+
+.buttonChangeNext{
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #e4e1e1;
+    border-radius: 999px;
+    margin-left: 20px;
+    background-color: white;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+.buttonChangePrevious{
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #e4e1e1;
+    border-radius: 999px;
+    margin-left: 70%;
+    background-color: white;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+
+.activeButton{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.pageInfo{
+    display: inline-block;
+    margin-left: 85%;
+    
+}
+
+.pageInfo span{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 0.5px solid #ececf2;
+    font-size: 12px;
+    padding: 2px;
+
+}
+
+
+.deleteEmployee{
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+.resetPwd{
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.thead {
+    background-color: #f7f7f7 !important;
+}
+
+.tableCell{
+    border: 1px solid rgba(224, 224, 224, 1) !important;
+    padding: 0 !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    padding-left: 14px !important;
+    font-weight: bold !important;
+}
+
+
+
+.css-1ex1afd-MuiTableCell-root {
+    padding: 6px !important;
+    padding-left: 14px !important;
+    border-bottom: 1px dotted #9a9a9a !important;
+}

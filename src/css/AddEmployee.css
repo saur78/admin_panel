@@ -1,0 +1,113 @@
+.formContainer{
+    width: 92%;
+    height: 800px;
+    margin: auto;
+}
+
+
+
+.formContainer h1{
+    text-align: left;
+    color: #00054F;
+    margin-bottom: 0;
+}
+.formContainer p{
+    text-align: left;
+    line-height: 21px;
+}
+
+
+.form{
+    width: 100%;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 1px 1px #cbc9c9;
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+
+}
+
+.formleft{
+    width: 50%;
+}
+
+
+.formRight{
+    width:50%;
+}
+
+
+.formLabel{
+    width: 100%;
+}
+
+.formLabel label{
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+.marginLable{
+    margin-top: 25px;
+}
+
+
+.formInput input{
+    display: block;
+    height: 50px;
+    width: 450px;
+    margin-left: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+
+input::placeholder{
+    padding-left: 10px;
+}
+
+.formInput{
+    width: 100%;
+    text-align: left;
+}
+
+
+label span{
+    color: rgb(199, 1, 1);
+}
+
+.buttonDiv{
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.buttonCancel{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 40px;
+    font-size: 16px;
+    
+}
+
+.buttonDone{
+    display: inline-block;
+    width: 280px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color:#675def;
+    color: white;
+    font-size: 16px;
+}
+
+

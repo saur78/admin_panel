@@ -1,18 +1,30 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import DailyActiveUser from './components/DailyActiveUser';
-import Dashboard from './components/Dashboard';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import MainPage from './components/MainPage';
+
+
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Dashboard/>
-      <DailyActiveUser/>
-      <Footer/>
+      <BrowserRouter>
+      <MainPage/>
+    </BrowserRouter>
+
+    {/* <Home/> */}
+    {/* <EmployeeManagement/> */}
+    {/* <AddEmployee/> */}
+    {/* <Login/> */}
+    {/* <ForgetPassword/> */}
+    {/* <Header/> */}
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
+

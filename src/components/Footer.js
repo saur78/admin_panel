@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/Footer.css'
+import logo from '../assets/images/vabbr.png'
 
 function Footer() {
   return (
@@ -11,7 +12,7 @@ function Footer() {
           <p>Joe sedan</p>
           <p>+91 8080767654</p>
           <p>joe.sedan@company.com</p>
-          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/1245px-Twitter-logo.svg.png' alt=''/>
+          <img src={logo} alt=''/>
         </div>
       </div>
     </div>
