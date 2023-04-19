@@ -43,6 +43,12 @@
     border:1px solid #d0d2d2
 }
 
+.option{
+background-color: white;
+border: none;
+    
+}
+
 .dailyUserCard{
     display: flex;
     flex-direction: row;

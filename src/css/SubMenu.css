@@ -1,0 +1,29 @@
+.subMenuUl{
+    height: 60px;
+    width: 120px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 14px;
+    right: 10px;
+}
+
+
+.subMenuUl li{
+    list-style-type: none;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.subMenuUl a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.subMenuUl  img{
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 20px;
+}

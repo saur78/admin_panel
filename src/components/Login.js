@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/Login.css'
 import bgVideo from '../assets/videos/production ID_4761426.mp4'
+import { Link } from 'react-router-dom'
 
 function Login() {
   return (
@@ -17,8 +18,8 @@ function Login() {
     <input className='loginInput' type='email' placeholder='Enter your email address'/>
     <label className='loginLabel'>Password</label>
     <input className='loginInput' type='password' placeholder='Enter your email address'/>
-    <div className='forgetPwd'><p>Forget Password?</p></div>
-    <button className='signInButton'>Sign In</button>
+    <Link to='/forgetpassword'><div className='forgetPwd'><p>Forget Password?</p></div></Link>
+    <Link to='/dashboard'><button className='signInButton'>Sign In</button></Link>
   </form>
 </div>
 

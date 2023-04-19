@@ -3,7 +3,6 @@ import ActiveUsersChart from './ActiveUsersChart'
 import awardsWon from "../assets/images/vuesax-bulk-medal-star.svg"
 import challengesDone from '../assets/images/vuesax-bulk-like-dislike.svg'
 import eventsAttended from '../assets/images/vuesax-bulk-smileys.svg'
-import upcomingEvents from '../assets/animations/upcomingEvents.gif'
 
 
 function DailyActiveUser() {
@@ -12,7 +11,11 @@ function DailyActiveUser() {
     <div className='dailyActiveUser'>
         <div className='dailyUserChartDetails'>
         <h2>Daily Active Users</h2>
-        <select className='year'><option value="">This Year</option></select>
+        <select className='year'>
+            <option className='option' >This Year</option>
+            <option className='option'  >2022</option>
+            <option className='option'  >2021</option>
+        </select>
             <ActiveUsersChart/>
         </div>
         <div className='dailyUserCardDetails'>

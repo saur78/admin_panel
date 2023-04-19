@@ -63,6 +63,7 @@ export default function SendMessage() {
     setOpen(false);
   };
 
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -78,7 +79,9 @@ export default function SendMessage() {
         </BootstrapDialogTitle>
         <DialogContent>
         <label style={{'fontSize':12, 'marginLeft':10}}>Message</label><br/>
-        <input type='text' className='sendMessageInput' placeholder='Type your message here...'/>
+        <div className='inputWrapper'>
+        <textarea className='sendMessageInput' placeholder='Type your message here...'></textarea>
+        </div>
         </DialogContent>
         <DialogActions>
         <Button className='smButton' onClick={handleClose} >Cancel</Button>

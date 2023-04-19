@@ -29,22 +29,22 @@ function HRProfile() {
             <div className='profileDetailsSingle'>
                 <div className='profileDetailsIcon'><img src={userIcon} alt=''/></div>
                 <div className='profileName'>
-                <p>First Name</p>
-                <p className='hrName'>Sebestian</p>
+                <p>Last Name</p>
+                <p className='hrName'>Greban</p>
                 </div>
             </div>
             <div className='profileDetailsSingle'>
                 <div className='profileDetailsIcon'><img src={callIcon} alt=''/></div>
                 <div className='profileName'>
-                <p>Phone Number</p>
-                <p className='hrName'>123456789</p>
+                <p className='hrTextColor'>Phone Number</p>
+                <p className='hrName hrTextColor'>123456789</p>
                 </div>
             </div>
             <div className='profileDetailsSingle'>
                 <div className='profileDetailsIcon'><img src={emailIcom} alt=''/></div>
                 <div className='profileName'>
-                <p>Email</p>
-                <p className='hrName'>abc@de.fgh</p>
+                <p className='hrTextColor'>Email</p>
+                <p className='hrName hrTextColor'>abc@de.fgh</p>
                 </div>
             </div>
             </div>

@@ -8,13 +8,14 @@ return (
 	<div>
 	<div style={{ maxWidth: "95%" }}>
 		<Bar
+	
 		data={{
 			labels: ["Jan", "Feb", "Mar", "Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 			datasets: [
-			{
-				
+			{ 			     	
 				data: [1300, 800, 1300, 800,1300, 800, 1300, 800,1300, 800, 1300, 800],
 				backgroundColor: ["orange", "blue"],
+				label:'',						
 				borderRadius:25,
 				barThickness:30,
 			},
@@ -38,9 +39,8 @@ return (
 				  },
 
 			legend: {
-			labels: {
-				fontSize: 15,
-			},
+				display: false,
+
 			},
 		}}
 		/>

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/EmployeeManagement.css";
-import EmployeeListTable from "./EmployeeListTable";
-import Header from "./Header";
-import { Link, Route, Routes } from "react-router-dom";
-import AddEmployee from "./AddEmployee";
-import { Checkbox, Paper, Switch, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Checkbox, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 function EmployeeManagement() {
   const [query,setQuery] = useState("");
@@ -13,6 +9,7 @@ function EmployeeManagement() {
   const [page, setPage] = useState(1);
   const rowsPerPage=10;
   const totalPage=Math.ceil((employees.length-1)/10);
+
 
 
 
@@ -90,7 +87,7 @@ function EmployeeManagement() {
           <div className="empSearch ">
             <input 
             placeholder="Search by name,number or email" 
-            onChange={(e) => setQuery(e.target.value)} />
+            onChange={(e) => setQuery(e.target.value.toLowerCase())} />
           </div>
           <div className="empFilter buttonHeader">
             <p onClick={handleFilter}>Filter</p>

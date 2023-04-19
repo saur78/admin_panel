@@ -11,13 +11,6 @@ function App() {
       <MainPage/>
     </BrowserRouter>
 
-    {/* <Home/> */}
-    {/* <EmployeeManagement/> */}
-    {/* <AddEmployee/> */}
-    {/* <Login/> */}
-    {/* <ForgetPassword/> */}
-    {/* <Header/> */}
-
     </div>
   );
 }

@@ -36,6 +36,7 @@
 .hrProfileDetails{
     width: 95%;
     margin: auto;
+    box-shadow: 1px 4px 3px #dddddd;
 }
 
 .hrProfileDetails h2{
@@ -48,6 +49,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 
 .profileDetailsSingle{
@@ -84,4 +86,9 @@
 .hrName{
     margin-top: -10px !important;
     text-align: left;
+}
+
+
+.hrTextColor{
+    color: #d1d1d1;
 }

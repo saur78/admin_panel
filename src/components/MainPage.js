@@ -1,12 +1,19 @@
-import React from 'react'
 import Header from './Header'
 import NavPages from './NavPages'
+import Login from './Login'
 
-function MainPage() {
+
+function MainPage(isLoggedIn=false) {
+
   return (
+
     <div>
-      <Header/>
-      <NavPages/>
+      {!isLoggedIn ? <Login/>:      
+     <>
+     <Header/>
+      <NavPages/></>
+      }
+
     </div>
   )
 }

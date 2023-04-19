@@ -1,7 +1,6 @@
 import React from "react";
 import "../css/AddEmployee.css";
 import { Link } from "react-router-dom";
-import EmployeeManagement from "./EmployeeManagement";
 
 function AddEmployee() {
   return (
@@ -37,8 +36,6 @@ function AddEmployee() {
               <input
                 type="text"
                 placeholder="Set start date"
-                onFocus={(e) => (e.target.type = "date")}
-                onBlur={(e) => (e.target.type = "text")}
               />
               <br />
             </div>
@@ -50,8 +47,6 @@ function AddEmployee() {
               <input
                 type="text"
                 placeholder="Set end date"
-                onFocus={(e) => (e.target.type = "date")}
-                onBlur={(e) => (e.target.type = "text")}
               />
             </div>
             <div className="buttonDiv">

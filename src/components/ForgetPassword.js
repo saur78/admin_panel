@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/ForgetPassword.css'
 import bgVideo from '../assets/videos/production ID_4761426.mp4'
+import { Link } from 'react-router-dom'
 
 function ForgetPassword() {
   return (
@@ -21,7 +22,7 @@ function ForgetPassword() {
       <input className='passwordBox' type='text' maxLength={1}/>
     </div>
     <button className='resendButton'>Resend Code in 00:30 sec</button>
-    <button className='signInButton'>Sign In</button>
+    <Link to='/dashboard'> <button className='signInButton'>Sign In</button></Link>
   </form>
 </div>
 
