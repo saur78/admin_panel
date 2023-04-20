@@ -17,14 +17,14 @@
 .headerRight{
     width: 35%;
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     align-items: center;
 
 }
 
 .messageAdmin{
     height: 40px;
-    width: 200px;
+    width: 40%;
     color: #675def;
     border-radius: 10px;
     border: none;
