@@ -12,7 +12,6 @@ import Submenu from "./Submenu";
 
 function Header() {
   const [isActiveTab, setActiveTab] = useState("dashboard");
-  console.info(isActiveTab + " isActiveTab");
   const handleOnActiveTab = (tabName) => {
     setActiveTab(tabName);
   };
