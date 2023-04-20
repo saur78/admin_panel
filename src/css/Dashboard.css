@@ -21,9 +21,7 @@
     align-items: center;
 
 }
-.headerRight button{
-    width:40%
-}
+
 
 .messageAdmin{
     height: 40px;
@@ -38,7 +36,7 @@
 
 .chatAdmin{
     height: 40px;
-    width: 200px;
+    width: 40%;
     color: white;
     background-color: #675def;
     text-align: center;
