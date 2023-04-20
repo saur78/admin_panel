@@ -16,7 +16,7 @@ function Dashboard() {
           <h1>Dashboard</h1>
         </div>
         <div className='headerRight'>
-          <button className='messageAdmin'><SendMessage/></button>
+          <div className='messageAdmin'><SendMessage/></div>
           <button className='chatAdmin'>Chat with Admin</button>
         </div>
       </div>
