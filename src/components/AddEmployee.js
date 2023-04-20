@@ -3,6 +3,10 @@ import "../css/AddEmployee.css";
 import { Link } from "react-router-dom";
 
 function AddEmployee() {
+  const handleAddEmp = () => {
+
+    };
+
   return (
     <div>
       <div className="formContainer">
@@ -51,7 +55,7 @@ function AddEmployee() {
             </div>
             <div className="buttonDiv">
             <Link to='/empmanagement'><button className="buttonCancel">Cancel</button></Link>
-            <button className="buttonDone">Done</button>
+            <button className="buttonDone" onClick={handleAddEmp}>Done</button>
             </div>
           </div>
 
