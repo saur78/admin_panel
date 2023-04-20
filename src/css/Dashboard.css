@@ -24,17 +24,16 @@
 
 
 .messageAdmin{
-    /* height: 40px;
+    height: 40px;
     width: 40%;
-    color: #675def; */
-    border-radius: 10px;
-    /* border: none;
+    color: #675def;
+    border: none;
     cursor: pointer;
-    background-color: white; */
+    background-color: white;
 
 }
 
-.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+/* .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     height: 40px !important;
     width: 40% !important;
     color: #675def !important;
@@ -43,7 +42,7 @@
     background-color: white !important;
     text-transform: capitalize !important;
 
-}
+} */
 
 .chatAdmin{
     height: 40px;

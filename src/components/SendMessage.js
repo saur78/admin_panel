@@ -65,9 +65,9 @@ export default function SendMessage() {
 
 
   return (
-    <div>
+    <>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Send Message to admin
+        Send message to Admin
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -88,6 +88,6 @@ export default function SendMessage() {
         <Button className='smButton sendButton'>Send</Button>
         </DialogActions>
       </BootstrapDialog>
-    </div>
+      </>
   );
 }
