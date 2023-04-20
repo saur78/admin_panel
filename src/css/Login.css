@@ -27,7 +27,6 @@ position: absolute;
 .loginBox{
     width: 350px;
     height: 380px;
-    /* background-color: transparent url('../assets/images/Card-Background.png') 0% 0% no-repeat padding-box; */
     background-color: rgba(255, 255, 255, 0.05);
     position: absolute;
     border-radius: 25px;

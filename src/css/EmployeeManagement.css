@@ -22,7 +22,7 @@
 }
 
 .empSearch{
-    width: 29%;
+    width: 27%;
 }
 .empSearch input{
     background-color: #f7f7f7;
@@ -74,10 +74,10 @@ input::placeholder{
 }
 
 .empAddEmp{
-    width: 100%;
+    width: 150px;
     box-sizing: border-box;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
     align-items: center;
     background-color: #205cf4;
     color: white;
@@ -110,37 +110,38 @@ input::placeholder{
 
 
 .footerButton{
-    width: 60%;
+    width: 90%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .footerPageInfo{
-    width: 40%;
+    width: 10%;
 }
 
 .buttonChangeNext{
-    width: 130px;
-    height: 40px;
+    width: 150px;
+    height: 33px;
     text-align: center;
     border: 1px solid #e4e1e1;
     border-radius: 999px;
-    margin-left: 20px;
     background-color: white;
-    padding-top: 15px;
+    padding-top: 10px;
     cursor: pointer;
+
 }
 
 .buttonChangePrevious{
-    width: 130px;
-    height: 40px;
+    width: 150px;
+    height: 33px;
     text-align: center;
     border: 1px solid #e4e1e1;
-    border-radius: 999px;
-    margin-left: 70%;
+    border-radius: 999px;    
     background-color: white;
-    padding-top: 15px;
+    padding-top: 10px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 
@@ -152,7 +153,7 @@ input::placeholder{
 
 .pageInfo{
     display: inline-block;
-    margin-left: 85%;
+    margin-left: 50px;
     
 }
 
@@ -197,5 +198,6 @@ input::placeholder{
 .css-1ex1afd-MuiTableCell-root {
     padding: 6px !important;
     padding-left: 14px !important;
-    border-bottom: 1px dotted #9a9a9a !important;
+    /* border-bottom: 1px dotted #9a9a9a !important; */
 }
+

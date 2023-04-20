@@ -14,7 +14,7 @@
 }
 
 .header img{
-    height: 25px;
+    height: 20px;
 }
 
 .navLeft{
@@ -49,7 +49,7 @@
 
 .dashboard p 
 {
-    margin-left: 20px;
+    margin-left: 15px;
     cursor: pointer;
 }
 
@@ -70,7 +70,7 @@
 }
 .empManagement p 
 {
-    margin-left: 20px;
+    margin-left: 15px;
     cursor: pointer;
 }
 
@@ -86,7 +86,7 @@
 
 .adminProfile p 
 {
-    margin-left: 20px;
+    margin-left: 15px;
     cursor: pointer;
 }
 
