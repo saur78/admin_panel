@@ -34,6 +34,7 @@
     background: left no-repeat url('../assets/images/Icon\ ionic-ios-search.svg') #f7f7f7;
     background-position: 10px;
     outline: none;
+    text-indent: 25px;
 }
 input::placeholder{
     text-indent: 15px;
