@@ -21,6 +21,9 @@
     align-items: center;
 
 }
+.headerRight button{
+    width:40%
+}
 
 .messageAdmin{
     height: 40px;
