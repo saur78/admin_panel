@@ -23,7 +23,7 @@
 }
 
 
-/* .messageAdmin{
+.messageAdmin{
     height: 40px;
     width: 40%;
     color: #675def;
@@ -32,16 +32,16 @@
     cursor: pointer;
     background-color: white;
 
-} */
+}
 
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     height: 40px !important;
     width: 40% !important;
     color: #675def !important;
-    border-radius: 10px !important;
+    border-radius: 15px !important;
     border: none !important;
     background-color: white !important;
-    text-transform: capitalize;
+    text-transform: capitalize !important;
 
 }
 
