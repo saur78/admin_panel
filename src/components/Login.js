@@ -18,7 +18,7 @@ function Login() {
     <input className='loginInput' type='email' placeholder='Enter your email address'/>
     <label className='loginLabel'>Password</label>
     <input className='loginInput' type='password' placeholder='Enter your email address'/>
-    <Link to='/forgetpassword'><div className='forgetPwd'><p>Forget Password?</p></div></Link>
+    <Link to='/forgetpassword' style={{'textDecoration':'none'}}><div className='forgetPwd'><p>Forget Password?</p></div></Link>
     <Link to='/dashboard'><button className='signInButton'>Sign In</button></Link>
   </form>
 </div>

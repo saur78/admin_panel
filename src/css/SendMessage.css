@@ -26,10 +26,6 @@
 
 
 
-
-
-
-
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
     height: 40px !important;
     width: 200px !important;
@@ -75,6 +71,7 @@
     resize: none;
     padding: 10px;
     line-height: 20px;
+    outline: none;
 }
 
 

@@ -67,6 +67,8 @@ position: absolute;
     border: none;
     border-radius: 10px;
     background-color: #f7f7f7;
+    outline: none;
+    text-indent: 25px;
 }
 
 input::placeholder{
@@ -80,8 +82,12 @@ input::placeholder{
     color: white;
     font-size: 12px;
     cursor: pointer;
+    
 }
 
+.forgetPwd a{
+    text-decoration: none !important;
+}
 
 .signInButton{
     width: 250px;
@@ -100,4 +106,5 @@ input::placeholder{
     color: white;
     text-align: left;
     line-height: 20px;
+    outline: none;
 }
