@@ -30,6 +30,18 @@
 }
 
 
+.css-79xub{
+    height: 40px !important;
+    width: 200px !important;
+    border-radius: 10px;
+    border: 1px solid #675def !important;
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+    border-radius: 10px !important;
+
+}
+
+
 .css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogActions-root{
     height: 50px;
 }
