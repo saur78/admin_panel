@@ -203,3 +203,54 @@ input::placeholder{
     /* border-bottom: 1px dotted #9a9a9a !important; */
 }
 
+
+.tableAction{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #fffbd5;
+    height: 50px;
+    
+}
+
+.tableActionButton{
+    height: 30px;
+    width:8%;
+    border-radius: 20px;
+    border:1.5px solid #c00303;
+    padding-top: 4px;;
+    margin-left: 10px;
+    margin-top: 8px;
+    color: #c00303;
+}
+
+.uncheckSelected{
+    margin-top: 12px;
+    text-align: left;
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    height: 30px;
+}
+
+.selectedRowNum{
+    height: 30px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+
+
+.selectedRowNum >.css-1m9pwf3{
+    padding: 0px;
+}
+
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked{
+    color: #c00303 !important;
+}
+
+
+.selected{
+    background-color: #ffeded;
+}

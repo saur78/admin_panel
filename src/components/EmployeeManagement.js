@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "../css/EmployeeManagement.css";
 import { Link } from "react-router-dom";
-import { Checkbox, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+  Checkbox,
+  Paper,
+  Switch,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 function EmployeeManagement() {
-  const [query,setQuery] = useState("");
-  const [employees,setEmployees]= useState([])
+  const [query, setQuery] = useState("");
+  const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(1);
-  const rowsPerPage=10;
-  const totalPage=Math.ceil((employees.length-1)/10);
-
-
-
+  const [selectedRows, setSelectedRows] = useState([]);
+  // const [selectedRow, setSelectedRow] = useState(null);
+  const rowsPerPage = 10;
+  const totalPage = Math.ceil((employees.length - 1) / 10);
 
   useEffect(() => {
     fetch("https://64345836582420e2317a1ece.mockapi.io/employees")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setEmployees(data);
       });
-  }, []); 
-
+  }, []);
 
   const columns = [
     { id: "empid", label: "Employee No." },
@@ -32,64 +39,48 @@ function EmployeeManagement() {
     { id: "active", label: "Active" },
     { id: "action", label: "Action" },
   ];
-  
 
   const handleDelete = (empid) => {
-  fetch(`https://64345836582420e2317a1ece.mockapi.io/employees/${empid}`, {
-    method: 'DELETE'
+    fetch(`https://64345836582420e2317a1ece.mockapi.io/employees/${empid}`, {
+      method: "DELETE",
     })
-
-    .then(response => response.json())
-        .then((data)=> {
-          console.log(data);
-            const updatedEmployees = employees.filter(data => empid !==data.empid)
-            setEmployees(updatedEmployees)
-            
-        })
-  };
-  
-  const handleResetPassword = (empid) => {
-
+      .then((response) => response.json())
+      .then((data) => {
+        const updatedEmployees = employees.filter(
+          (data) => empid !== data.empid
+        );
+        setEmployees(updatedEmployees);
+      });
   };
 
-  const handleSort =() =>{
+  const handleResetPassword = (empid) => {};
 
-  }
+  const handleSort = () => {};
 
+  const handleFilter = () => {};
 
-  const handleFilter =() =>{
-    
-  
-  }
+  const handleChangePrevious = () => {
+    if (page !== 1) {
+      setPage(page - 1);
+    }
+  };
 
-
-
-  const handleChangePrevious = () =>{
-    if (page!==1){
-    setPage(page - 1);
-  }
-  }
-
-  const handleChangeNext = () =>{
-    if (page<totalPage){
-    setPage(page + 1);
-  }
-}
-
-
-
-
+  const handleChangeNext = () => {
+    if (page < totalPage) {
+      setPage(page + 1);
+    }
+  };
 
   return (
     <>
-
       <div className="empMngmt">
         <div className="empMngmtHeader">
           <h2>Employee Management</h2>
           <div className="empSearch ">
-            <input 
-            placeholder="Search by name,number or email" 
-            onChange={(e) => setQuery(e.target.value.toLowerCase())} />
+            <input
+              placeholder="Search by name,number or email"
+              onChange={(e) => setQuery(e.target.value.toLowerCase())}
+            />
           </div>
           <div className="empFilter buttonHeader">
             <p onClick={handleFilter}>Filter</p>
@@ -97,65 +88,131 @@ function EmployeeManagement() {
           <div className="empSort buttonHeader">
             <p onClick={handleSort}>Sort</p>
           </div>
-          <Link to='/empmanagement/addemployee'><button className="empAddEmp">+Add Employee</button></Link>
+          <Link to="/empmanagement/addemployee">
+            <button className="empAddEmp">+Add Employee</button>
+          </Link>
         </div>
         <div className="empData">
-
-
-
           <h3>Employee List</h3>
-
-
+          {selectedRows.length > 0 ? (
+            <div className="tableAction">
+              <div className="uncheckSelected">X</div>
+              <div className="selectedRowNum">
+                <Checkbox checked={selectedRows.length > 0 ? true : false} />
+                {selectedRows.length}
+              </div>
+              <div className="tableActionButton">Move</div>
+              <div className="tableActionButton" >Delete</div>
+              <div className="tableActionButton">Raise Issue</div>
+              <div className="tableActionButton">Status</div>
+              <div className="tableActionButton">Start Date</div>
+              <div className="tableActionButton">End Date</div>
+            </div>
+          ) : null}
           <TableContainer component={Paper}>
-        <Table>
-          <TableHead className="thead">
-          <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                className="tableCell"
-                key={column.id}>
-                  {column.id === "empid" ? <Checkbox /> : null}
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {employees
-                         
-            .filter(item=>item.name.toLowerCase().includes(query))
-            .slice((page-1 )* rowsPerPage, (page-1) * rowsPerPage + rowsPerPage)       
-            .map((employee) => (
-             
-             <TableRow key={employee.empid}>
-                <TableCell > <Checkbox />{employee.empid}</TableCell>
-                <TableCell>{employee.name}</TableCell>
-                <TableCell >{employee.location}</TableCell>
-                <TableCell >{employee.startDate}</TableCell>
-                <TableCell >{employee.endDate}</TableCell>
-                <TableCell >
-                  <Switch checked={employee.active} />
-                </TableCell>
-                <TableCell ><p className="deleteEmployee" onClick={()=>handleDelete(employee.empid)}>Delete</p> <p className="resetPwd" onClick={handleResetPassword}>Reset Password</p></TableCell>
-                
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div className="tableFooter">
-        <div className="footerButton">
-          <div className="buttonChangePrevious" onClick={handleChangePrevious}>Previous</div>
-          <div className="buttonChangeNext activeButton" onClick={handleChangeNext}>Next</div>
-        </div>
-        <div className="footerPageInfo">
-          <p className="pageInfo"><span>{page}</span> of{totalPage}</p>
-        </div>
-      </div>
+            <Table>
+              <TableHead className="thead">
+                <TableRow key={"empid"}>
+                  {columns.map((column) => (
+                    <TableCell className="tableCell">
+                      {column.id === "empid" ? (
+                        <Checkbox
+                          checked={selectedRows.length === employees.length}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedRows(
+                                employees.map((employee) => employee.empid)
+                              );
+                            } else {
+                              setSelectedRows([]);
+                            }
+                          }}
+                        />
+                      ) : null}
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
 
-
-
-
+              <TableBody>
+                {employees
+                  .filter((item) => item.name.toLowerCase().includes(query))
+                  .slice(
+                    (page - 1) * rowsPerPage,
+                    (page - 1) * rowsPerPage + rowsPerPage
+                  )
+                  .map((employee) => (
+                    <TableRow
+                      key={employee.empid}
+                      className={
+                        selectedRows.includes(employee.empid) ? "selected" : ""
+                      }
+                    >
+                      <TableCell>
+                        <Checkbox
+                          checked={selectedRows.includes(employee.empid)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setSelectedRows([
+                                ...selectedRows,
+                                employee.empid,
+                              ]);
+                            } else {
+                              setSelectedRows(
+                                selectedRows.filter(
+                                  (id) => id !== employee.empid
+                                )
+                              );
+                            }
+                          }}
+                        />
+                        {employee.empid}
+                      </TableCell>
+                      <TableCell>{employee.name}</TableCell>
+                      <TableCell>{employee.location}</TableCell>
+                      <TableCell>{employee.startDate}</TableCell>
+                      <TableCell>{employee.endDate}</TableCell>
+                      <TableCell>
+                        <Switch checked={employee.active} />
+                      </TableCell>
+                      <TableCell>
+                        <p
+                          className="deleteEmployee"
+                          onClick={() => handleDelete(employee.empid)}
+                        >
+                          Delete
+                        </p>
+                        <p className="resetPwd" onClick={handleResetPassword}>
+                          Reset Password
+                        </p>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <div className="tableFooter">
+            <div className="footerButton">
+              <div
+                className="buttonChangePrevious"
+                onClick={handleChangePrevious}
+              >
+                Previous
+              </div>
+              <div
+                className="buttonChangeNext activeButton"
+                onClick={handleChangeNext}
+              >
+                Next
+              </div>
+            </div>
+            <div className="footerPageInfo">
+              <p className="pageInfo">
+                <span>{page}</span> of{totalPage}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>
