@@ -94,6 +94,7 @@ function EmployeeManagement() {
         </div>
         <div className="empData">
           <h3>Employee List</h3>
+          <TableContainer component={Paper}>
           {selectedRows.length > 0 ? (
             <div className="tableAction">
               <div className="uncheckSelected">X</div>
@@ -109,14 +110,13 @@ function EmployeeManagement() {
               <div className="tableActionButton">End Date</div>
             </div>
           ) : null}
-          <TableContainer component={Paper}>
             <Table>
               <TableHead className="thead">
                 <TableRow key={"empid"}>
                   {columns.map((column) => (
                     <TableCell className="tableCell">
                       {column.id === "empid" ? (
-                        <Checkbox
+                        <Checkbox style={{'fill':'chocolate'}}
                           checked={selectedRows.length === employees.length}
                           onChange={(e) => {
                             if (e.target.checked) {
