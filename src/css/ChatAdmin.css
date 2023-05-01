@@ -31,15 +31,11 @@ left: 60% !important;
 }
 
 .css-uhb5lp{
-    position: fixed;
-    z-index: 1300;
-    right: 0;
-    bottom: 0;
+    position: fixed !important;
     left: 60% !important;
-
     max-height: 500px !important;
     height: 420px;
-    width: 350px !important;
+    width: 350px !important;    
     }
 
 .css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogContent-root{
