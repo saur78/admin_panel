@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/Dashboard.css'
 import upIcon from '../assets/images/Polygon 2.svg'
 import downIcon from '../assets/images/Polygon 2 down.svg'
@@ -7,6 +7,7 @@ import growthTwo from '../assets/animations/growth 2.gif'
 import down from '../assets/animations/down.gif'
 import thumbsUp from '../assets/animations/thumbsUp.gif'
 import SendMessage from "./SendMessage";
+import ChatAdmin from "./ChatAdmin";
 
 function Dashboard() {
   return (
@@ -68,9 +69,8 @@ function Dashboard() {
             </div>
           </div>
         </div>
-
-
       </div>
+      <ChatAdmin/>
     </>
   );
 }

@@ -12,21 +12,44 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Filter from "./Filter";
+import Sort from "./Sort";
+
 
 function EmployeeManagement() {
   const [query, setQuery] = useState("");
   const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedRows, setSelectedRows] = useState([]);
-  // const [selectedRow, setSelectedRow] = useState(null);
+  const [activeSwitch,setActiveSwitch]=useState();
   const rowsPerPage = 10;
   const totalPage = Math.ceil((employees.length - 1) / 10);
+  const [filterMenu, SetFilterMenu]=useState(false);
+  const [sortMenu, SetSortMenu]=useState(false);
+
+
+  const handleFilterOpen=()=>{
+    SetFilterMenu(true)    
+  };
+
+  const handleFilterMouseLeave = () => {
+    SetFilterMenu(false);
+  };
+
+  const handleSortOpen=()=>{
+    SetSortMenu(true)    
+  };
+
+  const handleSortMouseLeave = () => {
+    SetSortMenu(false);
+  };
 
   useEffect(() => {
     fetch("https://64345836582420e2317a1ece.mockapi.io/employees")
       .then((response) => response.json())
       .then((data) => {
         setEmployees(data);
+        setActiveSwitch(data.active)
       });
   }, []);
 
@@ -55,9 +78,6 @@ function EmployeeManagement() {
 
   const handleResetPassword = (empid) => {};
 
-  const handleSort = () => {};
-
-  const handleFilter = () => {};
 
   const handleChangePrevious = () => {
     if (page !== 1) {
@@ -69,6 +89,24 @@ function EmployeeManagement() {
     if (page < totalPage) {
       setPage(page + 1);
     }
+  };
+  const handleActive = (empid, active) => {
+    console.log(empid)
+    setActiveSwitch(active)
+    console.log(activeSwitch)
+    fetch(`https://64345836582420e2317a1ece.mockapi.io/empoyees/${empid}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        active: {activeSwitch},
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+
   };
 
   return (
@@ -83,10 +121,10 @@ function EmployeeManagement() {
             />
           </div>
           <div className="empFilter buttonHeader">
-            <p onClick={handleFilter}>Filter</p>
+            <p onClick={handleFilterOpen} onMouseLeave={handleFilterMouseLeave}>Filter { filterMenu && <Filter/>}</p>
           </div>
           <div className="empSort buttonHeader">
-            <p onClick={handleSort}>Sort</p>
+            <p onClick={handleSortOpen} onMouseLeave={handleSortMouseLeave}>Sort { sortMenu && <Sort/>}</p>
           </div>
           <Link to="/empmanagement/addemployee">
             <button className="empAddEmp">+Add Employee</button>
@@ -95,28 +133,28 @@ function EmployeeManagement() {
         <div className="empData">
           <h3>Employee List</h3>
           <TableContainer component={Paper}>
-          {selectedRows.length > 0 ? (
-            <div className="tableAction">
-              <div className="uncheckSelected">X</div>
-              <div className="selectedRowNum">
-                <Checkbox checked={selectedRows.length > 0 ? true : false} />
-                {selectedRows.length}
+            {selectedRows.length > 0 ? (
+              <div className="tableAction">
+                <div className="uncheckSelected">X</div>
+                <div className="selectedRowNum">
+                  <Checkbox checked={selectedRows.length > 0 ? true : false} />
+                  {selectedRows.length}
+                </div>
+                <div className="tableActionButton">Move</div>
+                <div className="tableActionButton">Delete</div>
+                <div className="tableActionButton">Raise Issue</div>
+                <div className="tableActionButton">Status</div>
+                <div className="tableActionButton">Start Date</div>
+                <div className="tableActionButton">End Date</div>
               </div>
-              <div className="tableActionButton">Move</div>
-              <div className="tableActionButton" >Delete</div>
-              <div className="tableActionButton">Raise Issue</div>
-              <div className="tableActionButton">Status</div>
-              <div className="tableActionButton">Start Date</div>
-              <div className="tableActionButton">End Date</div>
-            </div>
-          ) : null}
+            ) : null}
             <Table>
               <TableHead className="thead">
                 <TableRow key={"empid"}>
                   {columns.map((column) => (
                     <TableCell className="tableCell">
                       {column.id === "empid" ? (
-                        <Checkbox style={{'fill':'chocolate'}}
+                        <Checkbox
                           checked={selectedRows.length === employees.length}
                           onChange={(e) => {
                             if (e.target.checked) {
@@ -174,7 +212,10 @@ function EmployeeManagement() {
                       <TableCell>{employee.startDate}</TableCell>
                       <TableCell>{employee.endDate}</TableCell>
                       <TableCell>
-                        <Switch checked={employee.active} />
+                        <Switch
+                          checked={employee.active}
+                          onChange={() => handleActive(employee.empid,employee.active)}
+                        />
                       </TableCell>
                       <TableCell>
                         <p
@@ -215,6 +256,7 @@ function EmployeeManagement() {
           </div>
         </div>
       </div>
+      
     </>
   );
 }
