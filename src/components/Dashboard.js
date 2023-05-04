@@ -8,8 +8,21 @@ import down from '../assets/animations/down.gif'
 import thumbsUp from '../assets/animations/thumbsUp.gif'
 import SendMessage from "./SendMessage";
 import ChatAdmin from "./ChatAdmin";
+import Lottie from "lottie-react";
+import animationData from "../assets/animations/59839.json";
 
 function Dashboard() {
+  const [open, setOpen] = useState(false);
+  const [svgClassName,setsvgClassName]=useState('chatAdminMessageIcon')
+
+  const handleClickOpen = () => {
+    setOpen(open => !open);
+    setsvgClassName(prevClassName =>
+      open ? "chatAdminMessageIcon" : "chatAdminMessageIconSmall"
+    );
+  };
+  
+
   return (
     <>
       <div className='dashboardHeader'>
@@ -70,7 +83,15 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <ChatAdmin/>
+      <div className={svgClassName}>
+        <Lottie
+          animationData={animationData}
+          autoplay
+          loop
+          onClick={handleClickOpen}
+        />
+      </div>
+       {open && <ChatAdmin/>}
     </>
   );
 }

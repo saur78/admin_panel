@@ -1,91 +1,49 @@
 import React, { useState } from 'react'
-import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import Lottie from "lottie-react";
-import animationData from "../assets/animations/59839.json";
 import "../css/ChatAdmin.css";
 import SendIcon from '@mui/icons-material/Send';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import Picker from 'emoji-picker-react';
 
 
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  "& .MuiDialogContent-root": {
-    padding: theme.spacing(2),
-  },
-  "& .MuiDialogActions-root": {
-    padding: theme.spacing(1),
-  },
-}));
-
-function BootstrapDialogTitle(props) {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
 
 export default function ChatAdmin() {
-  const [open, setOpen] = useState(false);
-  const [svgClassName,setsvgClassName]=useState('chatAdminMessageIcon')
+  const [inputStr, setInputStr] = useState('');
+  const [showPicker, setShowPicker] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-    setsvgClassName('chatAdminMessageIcon')
-  };
 
-  function handleSvgClick() {
-    setsvgClassName('chatAdminMessageIconSmall')
+
+
+  const sendMessage = () =>{
+    console.log(`Sending message: ${inputStr}`);
+    setInputStr('');
   }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  }
+
+  
+  function handleEnterClick(event) {
+      sendMessage();
+
+  }
+
+  const onEmojiClick = (event) => {
+    setInputStr(prevInput => prevInput + event.emoji);
+    console.log(event.emoji);
+    setShowPicker(false);
+  };
+
+
+
   
 
   return (
     <>
-      <div className={svgClassName} onClick={handleSvgClick}>
-        <Lottie
-          animationData={animationData}
-          autoplay
-          loop
-          onClick={handleClickOpen}
-        />
-      </div>
 
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <DialogContent>
+      <div className='ChatBoxContainer'>
           <div className="chatAdminProfilePic">
             <img
               src="https://www.citypng.com/public/uploads/preview/download-black-male-user-profile-icon-png-116371332534k5baafcll.png"
@@ -144,13 +102,24 @@ export default function ChatAdmin() {
           <div className="chatAdminMessageBox"></div>
 
           <div className="chatAdminInput">
-            <input placeholder="Hit the enter to respond" />
-            <SendIcon color="primary"  className='sendIconChatAdmin'/>
+            <input 
+          value={inputStr}
+          onChange={e => setInputStr(e.target.value)}
+            onKeyDown={handleKeyPress}
+            placeholder="Hit the enter to respond"/>
+            <SendIcon color="primary"  className='sendIconChatAdmin' onClick={handleEnterClick}/>
           </div>
-          <InsertEmoticonIcon className="emoji"/>
-          
-        </DialogContent>
-      </BootstrapDialog>
+          <div className='emoji'>
+          <img
+          className="emoji-icon"
+          src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+          onClick={() => setShowPicker(val => !val)}
+          alt='' />
+        {showPicker && <Picker
+          onEmojiClick={onEmojiClick} />}
+          </div>
+                   
+        </div>
     </>
   );
 }

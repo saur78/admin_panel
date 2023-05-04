@@ -8,6 +8,7 @@ import Login from './Login'
 import ForgetPassword from './ForgetPassword'
 
 
+
 function NavPages() {
   return (
     <div>
@@ -18,6 +19,8 @@ function NavPages() {
         <Route path='/empmanagement/addemployee' element={<AddEmployee/>}/>
         <Route path='/hrprofile' element={<HRProfile/>}></Route>
         <Route path='/forgetpassword' element={<ForgetPassword/>}></Route>
+              
+        
       </Routes>
 
     </div>

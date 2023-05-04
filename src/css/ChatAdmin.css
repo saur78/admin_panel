@@ -1,56 +1,16 @@
-.chatAdminMessageIcon{
-    width: 35px;
-    border-radius: 999px;
-    position: fixed;
-    margin-top: 10%;
-    margin-left: 90%;
-    padding: 18px;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 5px 1px #e3e3e3;
-}
-
-.chatAdminMessageIconSmall{
-    width: 25px;
-    border-radius: 999px;
-    position: fixed;
-    margin-top: 10%;
-    margin-left: 90%;
-    padding: 18px;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 5px 1px #e3e3e3;
-}
-
-
-
-.css-153eyq5-MuiModal-root-MuiDialog-root{
-position: fixed;
-z-index: 1300;
-right: 0;
-bottom: 0;
-left: 60% !important;
-}
-
-.css-uhb5lp{
+.ChatBoxContainer{
     position: fixed !important;
-    left: 60% !important;
+    left: 68% !important;
+    top:15%;
     max-height: 500px !important;
-    height: 420px;
-    width: 350px !important;    
+    height: 500px !important;
+    width: 350px !important; 
+    z-index: 1300;
+    background-color: white;
+    border-radius: 20px; 
     }
 
-.css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogContent-root{
-    padding: 0 !important;
-}
 
-.css-74waha .MuiDialogContent-root{
-    padding: 0 !important;
-}
-
-.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
-    max-height: 500px !important;
-    height: 420px;
-    width: 350px !important;
-}
 
 .chatAdminProfilePic{
     height: 50px;
@@ -81,14 +41,15 @@ margin-top: 20px;
 }
 
 .chatAdminMessageBox{
-    height: 280px;
+    height: 350px;
     border-bottom: 2px solid #c1c1c1;
 }
 
 .chatAdminInput{
 width: 100%;
-position: fixed;
 height: 50px;
+text-align: left;
+
 }
 
 .chatAdminInput > input{
@@ -97,14 +58,13 @@ height: 50px;
     outline: none;
     width:300px;
     text-align: left;
-    padding-left: 4px;
-   
-}
+    text-indent: 10px;
+   }
 
 .chatAdminInput > input::placeholder{
     font-size: 16px;
     padding-left: 0;
-    text-indent: 0;
+    text-indent: 10px;
     
 }
 
@@ -112,9 +72,14 @@ height: 50px;
     position:absolute;
     padding-top: 10px;  
 }
+.emoji {
+    position: absolute;
+    bottom: calc(4% + 10px);
+    text-align: left;
+  }
+  
 
-
-.emoji{
-    margin-top: 40px;
-    margin-left: 5px;
+.emoji-icon{
+    margin-left: 10px;
 }
+
