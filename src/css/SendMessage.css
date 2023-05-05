@@ -1,12 +1,12 @@
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
-    height: 400px;
+    height: 450px;
     width: 400px;
     border: 15px;
     border-radius: 20px !important;
 }
 
 .css-uhb5lp{
-    height: 400px;
+    height: 450px;
     width: 400px;
     border: 15px;
     border-radius: 20px !important;
@@ -21,6 +21,10 @@
 }
 
 .css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogActions-root {
+    padding: 25px !important;
+}
+
+.css-74waha .MuiDialogActions-root {
     padding: 25px;
 }
 
@@ -93,6 +97,7 @@
     border-radius: 10px !important;
     border:1px solid blue !important ;
     margin: auto !important;
+   
 }
 .sendButton{
     background-color: blue !important;
