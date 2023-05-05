@@ -21,7 +21,10 @@
 }
 
 .css-153eyq5-MuiModal-root-MuiDialog-root .MuiDialogActions-root {
-    padding: 25px;
+    padding: 25px !important;
+}
+.css-74waha .MuiDialogActions-root{
+    padding: 25px !important;   
 }
 
 
