@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState } from "react";
+import React, {useEffect, useState } from "react";
 import "../css/Login.css";
 import bgVideo from "../assets/videos/production ID_4761426.mp4";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
-  const prevErrorRef = useRef("");
 
 
 
@@ -22,15 +21,14 @@ const handleSignIn = (event) => {
 };
 
 useEffect(() => {
-  const currentError = loginAuth.token.error;
-  if (currentError && currentError !== prevErrorRef.current) {
-    alert(currentError);
-  } else if (loginAuth.isLoggedIn && loginAuth.token.jwt) {
+if (loginAuth.isLoggedIn===false){
+    navigate('/')
+  }
+ else if (loginAuth.isLoggedIn && loginAuth.token.jwt) {
     navigate("/dashboard");
   }
-  prevErrorRef.current = currentError;
-}, [loginAuth.token.error, loginAuth.isLoggedIn, loginAuth.token.jwt, navigate]);
 
+}, []);
 
 
 

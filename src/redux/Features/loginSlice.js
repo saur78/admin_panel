@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+
+
 
 
 
@@ -53,6 +57,7 @@ export  const fetchLogin=createAsyncThunk('login/fetchLogin', ({email,password})
 })
 
 const loginSlice=createSlice({
+    
     name:'login',
     initialState,
     reducers: {
@@ -63,23 +68,33 @@ const loginSlice=createSlice({
           clearAuthData()
         }
     },
+    
     extraReducers:builder=>{
         builder.addCase(fetchLogin.pending,state=>{
             state.loading=true
         })
-        builder.addCase(fetchLogin.fulfilled,(state,action)=>{
-            state.loading=false
-            state.isLoggedIn=true
-            state.error=''
-            state.token=action.payload
+        builder.addCase(fetchLogin.fulfilled, (state, action) => {
+            state.loading = false
+            state.error = ''
+            state.token = action.payload            
+            if (action.payload.error) {
+              state.isLoggedIn = false
+              alert(state.token.error);
+            }
+            else{
+                state.isLoggedIn=true
+            }
             saveAuthData(state.isLoggedIn, state.token)
           })
         builder.addCase(fetchLogin.rejected,(state,action)=>{
+            const navigate = useNavigate()
             state.loading=false
             state.isLoggedIn=false
             state.error=action.error.message
             state.token={}
             clearAuthData()
+            navigate('/')
+            
         })
     }
 })

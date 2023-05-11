@@ -1,6 +1,8 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import MainPage from './components/MainPage';
+import NavPages from './components/NavPages';
+import Header from './components/Header';
 
 
 
@@ -8,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <MainPage/>
+      <Header/>
     </BrowserRouter>
 
     </div>
