@@ -6,7 +6,6 @@ import AddEmployee from './AddEmployee'
 import HRProfile from './HRProfile'
 import Login from './Login'
 import ForgetPassword from './ForgetPassword'
-import PrivateRoute from './PrivateRoute'
 
 
 
@@ -15,11 +14,12 @@ function NavPages() {
     <div>
       <Routes>
       <Route path="/" element={<Login/>} />
+        <Route path="/dashboard" element={<Home/>} />
+        <Route path="/empmanagement" element={<EmployeeManagement/>} />
+        <Route path='/empmanagement/addemployee' element={<AddEmployee/>}/>
+        <Route path='/hrprofile' element={<HRProfile/>}></Route>
         <Route path='/forgetpassword' element={<ForgetPassword/>}></Route>
-        <Route path="/dashboard" element={<PrivateRoute><Home/></PrivateRoute>} />
-        <Route path="/empmanagement" element={<PrivateRoute><EmployeeManagement/></PrivateRoute>} />
-        <Route path="/empmanagement/addemployee" element={<PrivateRoute><AddEmployee/></PrivateRoute>} />
-        <Route path="/hrprofile" element={<PrivateRoute><HRProfile/></PrivateRoute>} />
+              
         
       </Routes>
 
