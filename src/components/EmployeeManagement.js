@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../css/EmployeeManagement.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchEmployees } from "../redux/Features/employeesListSlice";
+
 import {
   Checkbox,
   Paper,
@@ -18,12 +22,9 @@ import Sort from "./Sort";
 
 function EmployeeManagement() {
   const [query, setQuery] = useState("");
-  const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [activeSwitch,setActiveSwitch]=useState();
   const rowsPerPage = 10;
-  const totalPage = Math.ceil((employees.length - 1) / 10);
   const [filterMenu, SetFilterMenu]=useState(false);
   const [sortMenu, SetSortMenu]=useState(false);
 
@@ -44,39 +45,31 @@ function EmployeeManagement() {
     SetSortMenu(false);
   };
 
-  useEffect(() => {
-    fetch("https://64345836582420e2317a1ece.mockapi.io/employees")
-      .then((response) => response.json())
-      .then((data) => {
-        setEmployees(data);
-        setActiveSwitch(data.active)
-      });
-  }, []);
+
+const employeeList=useSelector((state)=>state.employees)
+const dispatch=useDispatch()
+useEffect(()=>{
+  dispatch(fetchEmployees())
+},[dispatch])
+
+const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
+
 
   const columns = [
-    { id: "empid", label: "Employee No." },
-    { id: "name", label: "Name" },
-    { id: "location", label: "Location" },
-    { id: "startDate", label: "Start Date" },
-    { id: "endDate", label: "End Date" },
-    { id: "active", label: "Active" },
+    { id: "user_id", label: "Employee No." },
+    { id: "first_name", label: "Name" },
+    { id: "country_code", label: "Location" },
+    { id: "start_date", label: "Start Date" },
+    { id: "end_date", label: "End Date" },
+    { id: "is_status", label: "Active" },
     { id: "action", label: "Action" },
   ];
 
-  const handleDelete = (empid) => {
-    fetch(`https://64345836582420e2317a1ece.mockapi.io/employees/${empid}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const updatedEmployees = employees.filter(
-          (data) => empid !== data.empid
-        );
-        setEmployees(updatedEmployees);
-      });
+  const handleDelete = (user_id) => {
+
   };
 
-  const handleResetPassword = (empid) => {};
+  const handleResetPassword = (user_id) => {};
 
 
   const handleChangePrevious = () => {
@@ -90,24 +83,10 @@ function EmployeeManagement() {
       setPage(page + 1);
     }
   };
-  const handleActive = (empid, active) => {
-    console.log(empid)
-    setActiveSwitch(active)
-    console.log(activeSwitch)
-    fetch(`https://64345836582420e2317a1ece.mockapi.io/empoyees/${empid}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        active: {activeSwitch},
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+  const handleActive = (user_id, active) => {
 
   };
+
 
   return (
     <>
@@ -137,7 +116,7 @@ function EmployeeManagement() {
               <div className="tableAction">
                 <div className="uncheckSelected">X</div>
                 <div className="selectedRowNum">
-                  <Checkbox checked={selectedRows.length > 0 ? true : false} />
+                  <Checkbox checked={Boolean(selectedRows.length > 0)} />
                   {selectedRows.length}
                 </div>
                 <div className="tableActionButton">Move</div>
@@ -150,16 +129,16 @@ function EmployeeManagement() {
             ) : null}
             <Table>
               <TableHead className="thead">
-                <TableRow key={"empid"}>
+                <TableRow key={'45po'}>
                   {columns.map((column) => (
                     <TableCell className="tableCell">
-                      {column.id === "empid" ? (
+                      {column.id === "user_id" ? (
                         <Checkbox
-                          checked={selectedRows.length === employees.length}
+                          checked={Boolean(selectedRows.length === employeeList.employees.length)}
                           onChange={(e) => {
                             if (e.target.checked) {
                               setSelectedRows(
-                                employees.map((employee) => employee.empid)
+                                employeeList.employees.map((employee) => employee.user_id)
                               );
                             } else {
                               setSelectedRows([]);
@@ -174,53 +153,53 @@ function EmployeeManagement() {
               </TableHead>
 
               <TableBody>
-                {employees
-                  .filter((item) => item.name.toLowerCase().includes(query))
+                {employeeList.employees
+                  .filter((item) => item.first_name.toLowerCase().includes(query))
                   .slice(
                     (page - 1) * rowsPerPage,
                     (page - 1) * rowsPerPage + rowsPerPage
                   )
                   .map((employee) => (
                     <TableRow
-                      key={employee.empid}
+                      key={employee.user_id}
                       className={
-                        selectedRows.includes(employee.empid) ? "selected" : ""
+                        selectedRows.includes(employee.user_id) ? "selected" : ""
                       }
                     >
                       <TableCell>
                         <Checkbox
-                          checked={selectedRows.includes(employee.empid)}
+                          checked={Boolean(selectedRows.includes(employee.user_id))}
                           onChange={(e) => {
                             if (e.target.checked) {
                               setSelectedRows([
                                 ...selectedRows,
-                                employee.empid,
+                                employee.user_id,
                               ]);
                             } else {
                               setSelectedRows(
                                 selectedRows.filter(
-                                  (id) => id !== employee.empid
+                                  (id) => id !== employee.user_id
                                 )
                               );
                             }
                           }}
                         />
-                        {employee.empid}
+                        {employee.user_id}
                       </TableCell>
-                      <TableCell>{employee.name}</TableCell>
-                      <TableCell>{employee.location}</TableCell>
-                      <TableCell>{employee.startDate}</TableCell>
-                      <TableCell>{employee.endDate}</TableCell>
+                      <TableCell>{employee.first_name}</TableCell>
+                      <TableCell>{employee.country_code}</TableCell>
+                      <TableCell>{employee.start_date}</TableCell>
+                      <TableCell>{employee.first_name}</TableCell>
                       <TableCell>
                         <Switch
-                          checked={employee.active}
-                          onChange={() => handleActive(employee.empid,employee.active)}
+                          checked={Boolean(employee.is_status)}
+                          onChange={() => handleActive(employee.user_id,employee.active)}
                         />
                       </TableCell>
                       <TableCell>
                         <p
                           className="deleteEmployee"
-                          onClick={() => handleDelete(employee.empid)}
+                          onClick={() => handleDelete(employee.user_id)}
                         >
                           Delete
                         </p>

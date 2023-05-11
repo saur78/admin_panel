@@ -8,6 +8,7 @@ import empMgmtIconWhite from '../assets/images/receipt-discount-white.svg'
 import empMgmtIconBlack from "../assets/images/receipt-discount-black.svg";
 import userIconBlack from '../assets/images/userIconBlack.svg'
 import Submenu from "./Submenu";
+import NavPages from "./NavPages";
 
 
 function Header() {
@@ -34,6 +35,7 @@ function Header() {
 
 
   return (
+    <>
     <div className="header">
       <div className="navLeft">
         <div className="logo">
@@ -89,12 +91,12 @@ function Header() {
         <p >Sebastian
         { showMenu && <Submenu/>}
         </p>
-      
-
 
         </div>
       </div>
     </div>
+    <NavPages/>
+    </>
   );
 }
 

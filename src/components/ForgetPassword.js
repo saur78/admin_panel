@@ -2,10 +2,64 @@ import React, { useEffect, useState } from 'react'
 import '../css/ForgetPassword.css'
 import bgVideo from '../assets/videos/production ID_4761426.mp4'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function ForgetPassword() {
   const [resendCounter, setResendCounter] = useState(30);
   const [email, setEmail] = useState('abcdef@g.com');
+
+
+  const handleResetPassword = (event) => {
+    event.preventDefault()
+    setResendCounter(30)
+    var config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://pihukzd54m.execute-api.ap-southeast-2.amazonaws.com/live/forgotpassword",
+      headers: {
+        "x-api-key": "Dt0LK0aaHv3eDtAHuE5Fy7OK8hmIj7Nu1CkTpCmr",
+      },
+      data: {
+        method: "forgotpassword",
+        email: 'k@vabbr.com',
+      },
+    };
+  
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  
+  const handleValidate = () =>{
+  
+  var config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://pihukzd54m.execute-api.ap-southeast-2.amazonaws.com/live/validatecode',
+  headers: { 
+    'x-api-key': 'Dt0LK0aaHv3eDtAHuE5Fy7OK8hmIj7Nu1CkTpCmr'
+  },
+  data : {
+    method: "validatecode",
+    email: "k@vabbr.com",
+    reset_code: 8639
+  }
+  };
+  
+  axios(config)
+  .then(function (response) {
+  console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+  console.log(error);
+  });
+  
+  
+  }
 
   //Resend Password Counter
   useEffect(() => {
@@ -67,8 +121,8 @@ inputs.forEach((input, index) => {
       <input className='passwordBox' type='text' maxLength={1}/>
       <input className='passwordBox' type='text' maxLength={1}/>
     </div>
-    <button className='resendButton' disabled={resendCounter > 0}>Resend Code in 00:{resendCounter<10? '0'+resendCounter:resendCounter} sec</button>
-    <Link to='/dashboard'> <button className='signInButton'>Sign In</button></Link>
+    <button className='resendButton' disabled={resendCounter > 0} onClick={handleResetPassword}>Resend Code in 00:{resendCounter<10? '0'+resendCounter:resendCounter} sec</button>
+    <Link to='/dashboard'> <button className='signInButton' onClick={handleValidate}>Sign In</button></Link>
   </form>
 </div>
 
