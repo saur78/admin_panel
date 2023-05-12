@@ -27,6 +27,14 @@ export const fetchEmployees=createAsyncThunk('employees/fetchEmployees', ()=>{
 const employeesListSlice=createSlice({
     name:'employees',
     initialState,
+    reducers:{
+      search: (state,action) => {
+        state.employees=action.payload        
+      },
+      deleteEmployee:(state,action) =>{
+        state.employees=action.payload
+      }
+    },
     extraReducers:builder=>{
         builder.addCase(fetchEmployees.pending,state=>{
             state.loading=true
@@ -43,5 +51,5 @@ const employeesListSlice=createSlice({
         })
     }
 })
-
+export const { search ,deleteEmployee } = employeesListSlice.actions
 export default employeesListSlice.reducer;

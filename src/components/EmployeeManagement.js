@@ -3,7 +3,7 @@ import "../css/EmployeeManagement.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEmployees } from "../redux/Features/employeesListSlice";
+import { deleteEmployee, fetchEmployees,search } from "../redux/Features/employeesListSlice";
 
 import {
   Checkbox,
@@ -77,7 +77,7 @@ function EmployeeManagement() {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        dispatch(deleteEmployee(response.data))
       })
       .catch(function (error) {
         console.log(error);
@@ -124,13 +124,14 @@ function EmployeeManagement() {
       data: {
         method: "searchemployeefields",
         company_id: 1,
-        searchtext: {query},
+        searchtext: e.target.value,
       },
     };
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log(JSON.stringify(response.data)); 
+        dispatch(search(response.data))
       })
       .catch(function (error) {
         console.log(error);
@@ -145,7 +146,6 @@ function EmployeeManagement() {
           <div className="empSearch">
             <input
               placeholder="Search by name,number or email"
-              // onChange={(e) => setQuery(e.target.value.toLowerCase())}
               onChange={handleSearch}
               
             />
