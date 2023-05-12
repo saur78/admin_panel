@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/EmployeeManagement.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { fetchEmployees } from "../redux/Features/employeesListSlice";
 
 import {
@@ -19,41 +19,37 @@ import {
 import Filter from "./Filter";
 import Sort from "./Sort";
 
-
 function EmployeeManagement() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [selectedRows, setSelectedRows] = useState([]);
   const rowsPerPage = 10;
-  const [filterMenu, SetFilterMenu]=useState(false);
-  const [sortMenu, SetSortMenu]=useState(false);
+  const [filterMenu, SetFilterMenu] = useState(false);
+  const [sortMenu, SetSortMenu] = useState(false);
 
-
-  const handleFilterOpen=()=>{
-    SetFilterMenu(true)    
+  const handleFilterOpen = () => {
+    SetFilterMenu(true);
   };
 
   const handleFilterMouseLeave = () => {
     SetFilterMenu(false);
   };
 
-  const handleSortOpen=()=>{
-    SetSortMenu(true)    
+  const handleSortOpen = () => {
+    SetSortMenu(true);
   };
 
   const handleSortMouseLeave = () => {
     SetSortMenu(false);
   };
 
+  const employeeList = useSelector((state) => state.employees);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchEmployees());
+  }, [dispatch]);
 
-const employeeList=useSelector((state)=>state.employees)
-const dispatch=useDispatch()
-useEffect(()=>{
-  dispatch(fetchEmployees())
-},[dispatch])
-
-const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
-
+  const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
 
   const columns = [
     { id: "user_id", label: "Employee No." },
@@ -66,11 +62,29 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
   ];
 
   const handleDelete = (user_id) => {
+    var config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://pihukzd54m.execute-api.ap-southeast-2.amazonaws.com/live/deleteemployee",
+      headers: {
+        "x-api-key": "Dt0LK0aaHv3eDtAHuE5Fy7OK8hmIj7Nu1CkTpCmr",
+      },
+      data: {
+        method: "deleteemployee",
+        user_id: { user_id },
+      },
+    };
 
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleResetPassword = (user_id) => {};
-
 
   const handleChangePrevious = () => {
     if (page !== 1) {
@@ -83,10 +97,11 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
       setPage(page + 1);
     }
   };
-  const handleActive = (user_id, active) => {
+  const handleActive = (user_id, active) => {};
 
-  };
 
+
+  //converts unix to ist
   function unixToIST(unixTimestamp) {
     const date = new Date(unixTimestamp * 1000); // convert to milliseconds
     const year = date.getFullYear();
@@ -96,23 +111,54 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
     return formattedDate;
   }
 
+  const handleSearch = (e) => {
+    setQuery(e.target.value)
+    console.log(query)
+    var config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://pihukzd54m.execute-api.ap-southeast-2.amazonaws.com/live/searchemployeefields",
+      headers: {
+        "x-api-key": "Dt0LK0aaHv3eDtAHuE5Fy7OK8hmIj7Nu1CkTpCmr",
+      },
+      data: {
+        method: "searchemployeefields",
+        company_id: 1,
+        searchtext: {query},
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <>
       <div className="empMngmt">
         <div className="empMngmtHeader">
           <h2>Employee Management</h2>
-          <div className="empSearch ">
+          <div className="empSearch">
             <input
               placeholder="Search by name,number or email"
-              onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              // onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              onChange={handleSearch}
+              
             />
           </div>
           <div className="empFilter buttonHeader">
-            <p onClick={handleFilterOpen} onMouseLeave={handleFilterMouseLeave}>Filter { filterMenu && <Filter/>}</p>
+            <p onClick={handleFilterOpen} onMouseLeave={handleFilterMouseLeave}>
+              Filter {filterMenu && <Filter />}
+            </p>
           </div>
           <div className="empSort buttonHeader">
-            <p onClick={handleSortOpen} onMouseLeave={handleSortMouseLeave}>Sort { sortMenu && <Sort/>}</p>
+            <p onClick={handleSortOpen} onMouseLeave={handleSortMouseLeave}>
+              Sort {sortMenu && <Sort />}
+            </p>
           </div>
           <Link to="/empmanagement/addemployee">
             <button className="empAddEmp">+Add Employee</button>
@@ -138,16 +184,21 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
             ) : null}
             <Table>
               <TableHead className="thead">
-                <TableRow key={'45po'}>
+                <TableRow key={""}>
                   {columns.map((column) => (
                     <TableCell className="tableCell">
                       {column.id === "user_id" ? (
                         <Checkbox
-                          checked={Boolean(selectedRows.length === employeeList.employees.length)}
+                          checked={Boolean(
+                            selectedRows.length ===
+                              employeeList.employees.length
+                          )}
                           onChange={(e) => {
                             if (e.target.checked) {
                               setSelectedRows(
-                                employeeList.employees.map((employee) => employee.user_id)
+                                employeeList.employees.map(
+                                  (employee) => employee.user_id
+                                )
                               );
                             } else {
                               setSelectedRows([]);
@@ -163,7 +214,6 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
 
               <TableBody>
                 {employeeList.employees
-                  .filter((item) => item.first_name.toLowerCase().includes(query))
                   .slice(
                     (page - 1) * rowsPerPage,
                     (page - 1) * rowsPerPage + rowsPerPage
@@ -172,12 +222,16 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
                     <TableRow
                       key={employee.user_id}
                       className={
-                        selectedRows.includes(employee.user_id) ? "selected" : ""
+                        selectedRows.includes(employee.user_id)
+                          ? "selected"
+                          : ""
                       }
                     >
                       <TableCell>
                         <Checkbox
-                          checked={Boolean(selectedRows.includes(employee.user_id))}
+                          checked={Boolean(
+                            selectedRows.includes(employee.user_id)
+                          )}
                           onChange={(e) => {
                             if (e.target.checked) {
                               setSelectedRows([
@@ -202,7 +256,9 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
                       <TableCell>
                         <Switch
                           checked={Boolean(employee.is_status)}
-                          onChange={() => handleActive(employee.user_id,employee.active)}
+                          onChange={() =>
+                            handleActive(employee.user_id, employee.active)
+                          }
                         />
                       </TableCell>
                       <TableCell>
@@ -244,7 +300,6 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
           </div>
         </div>
       </div>
-      
     </>
   );
 }
