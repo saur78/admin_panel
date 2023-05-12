@@ -122,7 +122,7 @@ inputs.forEach((input, index) => {
       <input className='passwordBox' type='text' maxLength={1}/>
     </div>
     <button className='resendButton' disabled={resendCounter > 0} onClick={handleResetPassword}>Resend Code in 00:{resendCounter<10? '0'+resendCounter:resendCounter} sec</button>
-    <Link to='/'> <button className='signInButton' onClick={handleValidate}>Sign In</button></Link>
+    <Link to='/dashboard'> <button className='signInButton' onClick={handleValidate}>Sign In</button></Link>
   </form>
 </div>
 

@@ -87,15 +87,6 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
 
   };
 
-  function unixToIST(unixTimestamp) {
-    const date = new Date(unixTimestamp * 1000); // convert to milliseconds
-    const year = date.getFullYear();
-    const month = ("0" + (date.getMonth() + 1)).slice(-2); // add leading zero if necessary
-    const day = ("0" + date.getDate()).slice(-2); // add leading zero if necessary
-    const formattedDate = `${day}-${month}-${year}`;
-    return formattedDate;
-  }
-
 
   return (
     <>
@@ -197,8 +188,8 @@ const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
                       </TableCell>
                       <TableCell>{employee.first_name}</TableCell>
                       <TableCell>{employee.country_code}</TableCell>
-                      <TableCell>{unixToIST(employee.start_date)}</TableCell>
-                      <TableCell>{unixToIST(employee.start_date)}</TableCell>
+                      <TableCell>{employee.start_date}</TableCell>
+                      <TableCell>{employee.first_name}</TableCell>
                       <TableCell>
                         <Switch
                           checked={Boolean(employee.is_status)}

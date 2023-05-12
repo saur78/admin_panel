@@ -13,8 +13,8 @@ function NavPages() {
   return (
     <div>
       <Routes>
-      <Route path="/login" element={<Login/>} />
-        <Route path="/" element={<Home/>} />
+      <Route path="/" element={<Login/>} />
+        <Route path="/dashboard" element={<Home/>} />
         <Route path="/empmanagement" element={<EmployeeManagement/>} />
         <Route path='/empmanagement/addemployee' element={<AddEmployee/>}/>
         <Route path='/hrprofile' element={<HRProfile/>}></Route>

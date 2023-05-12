@@ -22,10 +22,10 @@ const handleSignIn = (event) => {
 
 useEffect(() => {
 if (loginAuth.isLoggedIn===false){
-    navigate('/login')
+    navigate('/')
   }
  else if (loginAuth.isLoggedIn && loginAuth.token.jwt) {
-    navigate("/");
+    navigate("/dashboard");
   }
 
 }, []);
@@ -62,7 +62,7 @@ if (loginAuth.isLoggedIn===false){
           <input
             className="loginInput"
             type="password"
-            placeholder="Enter your password"
+            placeholder="Enter your email address"
             onChange={(e) => setPassword(e.target.value)}
           />
           <Link to="/forgetpassword" style={{ textDecoration: "none" }} >

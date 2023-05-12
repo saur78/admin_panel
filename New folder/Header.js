@@ -39,11 +39,11 @@ function Header() {
     <div className="header">
       <div className="navLeft">
         <div className="logo">
-         <Link to='/'> <img src={logo} alt="" /></Link>
+         <Link to='/dashboard'> <img src={logo} alt="" /></Link>
         </div>
         <div className="dashboard">
           <NavLink
-            to="/"
+            to="/dashboard"
             className={({ isActive }) => {
               if (isActive) {
                 handleOnActiveTab("dashboard");
