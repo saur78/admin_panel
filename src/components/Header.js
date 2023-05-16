@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Header.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/vabbr.png";
@@ -9,17 +9,22 @@ import empMgmtIconBlack from "../assets/images/receipt-discount-black.svg";
 import userIconBlack from '../assets/images/userIconBlack.svg'
 import Submenu from "./Submenu";
 import NavPages from "./NavPages";
+import { useSelector } from "react-redux";
 
 
 function Header() {
   const [isActiveTab, setActiveTab] = useState("dashboard");
+  const loginAuth=useSelector((state)=>state.login)
+
   const handleOnActiveTab = (tabName) => {
     setActiveTab(tabName);
   };
 
   const [showMenu, SetShowMenu]=useState(false)
 
-
+  useEffect(()=>{
+    SetShowMenu(false)
+  },[loginAuth.isLoggedIn])
 
   const handleUserOpen=()=>{
     SetShowMenu(true)    
@@ -36,6 +41,7 @@ function Header() {
 
   return (
     <>
+    {loginAuth.isLoggedIn && (
     <div className="header">
       <div className="navLeft">
         <div className="logo">
@@ -94,7 +100,7 @@ function Header() {
 
         </div>
       </div>
-    </div>
+    </div>)}
     <NavPages/>
     </>
   );

@@ -13,7 +13,8 @@ function Submenu() {
 
   const handleLogOut = () => {
     dispatch(logout());
-    navigate('/')
+    navigate('/login')
+
   }
   
 

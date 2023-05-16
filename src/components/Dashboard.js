@@ -79,7 +79,7 @@ function Dashboard() {
   }, []);
 
 
-  //converting for the growth of participants in challenges into percentage
+  //conversion for the growth of participants in challenges into percentage
   const participantChallengesGrowthPercent = ((participantChallengesGrowth *100)/participantChallenges)
   console.log(participantChallengesGrowthPercent)
 

@@ -49,7 +49,8 @@ function EmployeeManagement() {
     dispatch(fetchEmployees());
   }, [dispatch]);
 
-  const totalPage = Math.ceil((employeeList.employees.length - 1) / 10);
+  const totalPage = Math.ceil((employeeList.employees.length) / 10);
+  
 
   const columns = [
     { id: "user_id", label: "Employee No." },

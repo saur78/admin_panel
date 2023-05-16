@@ -99,7 +99,34 @@ export default function ChatAdmin() {
               </g>
             </svg>
           </div>
-          <div className="chatAdminMessageBox"></div>
+          
+          <div className="chatAdminMessageBox">
+          <div className='adminMessage'>
+            <p>Hii Sebastian! How can I help?</p>
+            </div>
+            <div className='hrMessage'>
+              <p>I need help in uploading the invoices of the employee</p>
+              </div>
+              <div className='adminMessage'>
+            <p>Hii Sebastian! How can I help?</p>
+            </div>
+            <div className='hrMessage'>
+              <p>I need help in uploading the invoices of the employee</p>
+              </div>
+              <div className='adminMessage'>
+            <p>Hii Sebastian! How can I help?</p>
+            </div>
+            <div className='hrMessage'>
+              <p>I need help in uploading the invoices of the employee</p>
+              </div>
+              <div className='adminMessage'>
+            <p>Hii Sebastian! How can I help?</p>
+            </div>
+            <div className='hrMessage'>
+              <p>I need help in uploading the invoices of the employee</p>
+              </div>
+
+          </div>
 
           <div className="chatAdminInput">
             <input 

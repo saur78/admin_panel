@@ -15,9 +15,9 @@ function Login() {
 const loginAuth=useSelector((state)=>state.login)
 const dispatch=useDispatch()
 
-const handleSignIn = (event) => {
+const handleSignIn = async (event) => {
   event.preventDefault();
-  dispatch(fetchLogin({ email, password }));
+  await dispatch(fetchLogin({ email, password }));
 };
 
 useEffect(() => {
@@ -28,7 +28,7 @@ if (loginAuth.isLoggedIn===false){
     navigate("/");
   }
 
-}, []);
+}, [loginAuth.isLoggedIn,loginAuth.token.jwt,navigate]);
 
 
 

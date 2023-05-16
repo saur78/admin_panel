@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/ForgetPassword.css'
 import bgVideo from '../assets/videos/production ID_4761426.mp4'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function ForgetPassword() {
@@ -33,8 +33,9 @@ function ForgetPassword() {
         console.log(error);
       });
   };
-  
+  const navigate =useNavigate()
   const handleValidate = () =>{
+    navigate('/login')
   
   var config = {
   method: 'post',
@@ -122,7 +123,7 @@ inputs.forEach((input, index) => {
       <input className='passwordBox' type='text' maxLength={1}/>
     </div>
     <button className='resendButton' disabled={resendCounter > 0} onClick={handleResetPassword}>Resend Code in 00:{resendCounter<10? '0'+resendCounter:resendCounter} sec</button>
-    <Link to='/'> <button className='signInButton' onClick={handleValidate}>Sign In</button></Link>
+    <button className='signInButton' onClick={handleValidate}>Sign In</button>
   </form>
 </div>
 

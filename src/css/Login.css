@@ -1,15 +1,13 @@
 .loginContainer{
-    width: 515px;
+    width: 100%;
+    height: 100%;
 }
-
-
 
 .videoPlay{
 position: fixed;
 top: 0px;
 left: 0px;
 width: 100%;
-
 opacity: 1;
 }
 
@@ -23,6 +21,7 @@ height: 182px;
 background: transparent url('../assets/images/Group-265694.png') 0% 0% no-repeat padding-box;
 background-size: 250px;
 position: absolute;
+object-fit: cover;
 }
 
 .loginBox{
@@ -32,9 +31,8 @@ position: absolute;
     position: absolute;
     border-radius: 25px;
     left: 56%;
-    top:23%;
-    backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(27px);    
+    top:28%;
+    backdrop-filter: blur(15px);  
 }
 
 
