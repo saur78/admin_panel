@@ -8,6 +8,7 @@ import Login from './Login'
 import ForgetPassword from './ForgetPassword'
 import PrivateRoute from './PrivateRoute'
 import NotFound from './NotFound'
+import CreateNewPassword from './CreateNewPassword'
 
 
 
@@ -17,6 +18,7 @@ function NavPages() {
       <Routes>
       <Route path="/login" element={<Login/>} />
         <Route path='/forgetpassword' element={<ForgetPassword/>}></Route>
+        <Route path='/createnewpassword' element={<CreateNewPassword/>}></Route>
         <Route path="/" element={<PrivateRoute><Home/></PrivateRoute>} />
         <Route path="/empmanagement" element={<PrivateRoute><EmployeeManagement/></PrivateRoute>} />
         <Route path="/empmanagement/addemployee" element={<PrivateRoute><AddEmployee/></PrivateRoute>} />

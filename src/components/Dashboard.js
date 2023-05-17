@@ -71,7 +71,23 @@ function Dashboard() {
 
     axios(config)
       .then(function (response) {
-        setParticipantChallengesGrowth(response.data[0].count);
+        const data = response.data
+        const currentMonthData=data[data.length - 1]
+        let prevMonthData=data[data.length - 2]
+
+        if (data.length===0){
+          let growthCount=currentMonthData.count
+           setParticipantChallengesGrowth(growthCount)
+         }
+
+        else if (data.length===1){
+         let growthCount=currentMonthData.count
+          setParticipantChallengesGrowth(growthCount)
+        }
+        else{
+         let growthCount=currentMonthData.count - prevMonthData.count
+         setParticipantChallengesGrowth(growthCount)
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -81,6 +97,7 @@ function Dashboard() {
 
   //conversion for the growth of participants in challenges into percentage
   const participantChallengesGrowthPercent = ((participantChallengesGrowth *100)/participantChallenges)
+  console.log(participantChallengesGrowth)
   console.log(participantChallengesGrowthPercent)
 
   return (

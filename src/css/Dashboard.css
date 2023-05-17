@@ -104,7 +104,7 @@
 .chatAdminMessageIcon{
     width: 40px;
     border-radius: 999px;
-    position: absolute;
+    position: fixed;
     top: 80%;
     left: 90%;
     padding: 18px;
@@ -116,7 +116,7 @@
 .chatAdminMessageIconSmall{
     width: 20px;
     border-radius: 999px;
-    position: absolute;
+    position: fixed;
     top: 82%;
     left: 90%;
     padding: 18px;

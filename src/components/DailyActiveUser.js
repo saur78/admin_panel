@@ -1,3 +1,4 @@
+import React from 'react'
 import '../css/DailyActiveUser.css'
 import ActiveUsersChart from './ActiveUsersChart'
 import awardsWon from "../assets/images/vuesax-bulk-medal-star.svg"
@@ -6,16 +7,10 @@ import eventsAttended from '../assets/images/vuesax-bulk-smileys.svg'
 
 
 function DailyActiveUser() {
-
+   
   return (
     <div className='dailyActiveUser'>
         <div className='dailyUserChartDetails'>
-        <h2>Daily Active Users</h2>
-        <select className='year'>
-            <option className='option' >This Year</option>
-            <option className='option'  >2022</option>
-            <option className='option'  >2021</option>
-        </select>
             <ActiveUsersChart/>
         </div>
         <div className='dailyUserCardDetails'>

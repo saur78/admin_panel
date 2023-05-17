@@ -35,7 +35,7 @@ function ForgetPassword() {
   };
   const navigate =useNavigate()
   const handleValidate = () =>{
-    navigate('/login')
+    navigate('/createnewpassword')
   
   var config = {
   method: 'post',

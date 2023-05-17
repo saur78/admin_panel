@@ -28,25 +28,25 @@
 
 }
 
+.chartHeader{
+    display: flex;
+    justify-content: space-around;
+}
+
 .dailyUserCardDetails h2{
+    display: inline-block;
     text-align: left;
     margin-left: 15px;
 }
 
-.year{
-    text-align: center;
-    font-size: 12px;
-    height: 40px;
-    width: 90px;
-    border-radius: 15px;
-    border:1px solid #d0d2d2
+
+
+.select{
+    margin-right: 15px;
+    margin-top: 20px;
 }
 
-.option{
-background-color: white;
-border: none;
-    
-}
+
 
 .dailyUserCard{
     display: flex;
